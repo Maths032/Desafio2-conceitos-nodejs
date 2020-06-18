@@ -50,7 +50,7 @@ app.put("/repositories/:id", validade, (request, response) => {
     likes
   }
 
-  const repositoryIndex = repositories.findIndex(Repository => repository.id === id)//procura a posição desse objeto dentro do array
+  const repositoryIndex = repositories.findIndex(repository => repository.id === id)//procura a posição desse objeto dentro do array
 
   if (repositoryIndex < 0) {//verifica se o objeto existe
     return response.status(400).send().json({error: "repository not found"})//se nao existir retorna erro bad request para cliente
@@ -69,7 +69,7 @@ app.delete("/repositories/:id", validade, (request, response) => {
   const { id } = request.params//pega o id do projeto que deve ser apagado
   const repository = {id}
   
-  const repositoryIndex = repositories.findIndex(Repository => repository.id === id)
+  const repositoryIndex = repositories.findIndex(repository => repository.id === id)
   
   if (repositoryIndex < 0) {//verifica se o objeto existe 
     return response.status(400).json({error: "repository not found"})//se nao existir retorna erro bad request para cliente 
@@ -90,7 +90,7 @@ app.post("/repositories/:id/like", validade, (request, response) => {
     id
   }
 
-  const repositoryIndex = repositories.findIndex(Repository => repository.id === id)
+  const repositoryIndex = repositories.findIndex(repository => repository.id === id)
   
   if (repositoryIndex < 0) {//verifica se o objeto existe e corta a conexão
     return response.status(400).send()//.json({error: "Não foi possível localizar seu ID"})//se nao existir retorna erro bad request para cliente
